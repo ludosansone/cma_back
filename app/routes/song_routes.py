@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException
 from typing import List
 from ..models.song_model import Song
-from ..models.course_model import CoverCourse
+from ..models.course_model import CoverCourse, CourseWithInstructor
+
 from ..services.song_service import SongService
 from ..services.course_service import CourseService
 
@@ -20,7 +21,7 @@ async def get_song_by_id(song_id: int):
         raise HTTPException(status_code=404, detail="Song not found")
     return song
 
-@router.get("/song/{song_id}/courses", response_model=List[CoverCourse])
+@router.get("/song/{song_id}/courses", response_model=List[CourseWithInstructor])
 async def get_courses_by_song_id(song_id: int):
     courses = course_service.get_courses_by_song_id(song_id)
     if not courses:

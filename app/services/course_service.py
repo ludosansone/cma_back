@@ -8,7 +8,6 @@ class CourseService:
         self.instructor_service = InstructorService()
         self.song_service = SongService()
         
-        # Assurons-nous d'abord que nous avons des instructeurs valides
         instructors = self.instructor_service.get_all_instructors()
         if len(instructors) < 3:
             raise ValueError("Not enough instructors in the system")
@@ -16,74 +15,60 @@ class CourseService:
         self.courses: List[Course] = [
             InitialCourse(
                 id=1,
-                title="Introduction to Acoustic Guitar",
-                description="Learn the basics of acoustic guitar playing",
-                instructor_id=instructors[0].id,
-                duration=60,
+                title="Introduction à la guitare acoustique",
+                description="Apprenez les bases de la guitare acoustique",
+                instructor_id=instructors[1].id,
+                duration=120,
                 price=29.99,
                 category='initial',
-                video_url="https://example.com/intro-acoustic-guitar",
+                video_url="/assets/video/lessons/armando_da_silva/caterine_ringer_cest_comme_ca/teazer/test_fr.mp4",
                 star_rating=4,
-                language="en",
+                language="fr",
                 instrument_id=1,
-                concept="Basic chords and strumming patterns"
+                concept="Accords de base et styles d'accompagnement"
             ),
             InitialCourse(
                 id=2,
-                title="Piano for Beginners",
-                description="Start your journey with piano",
-                instructor_id=instructors[1].id,
+                title="Débutez au piano",
+                description="Commencez votre voyage avec le piano",
+                instructor_id=instructors[3].id,
                 duration=90,
-                price=39.99,
+                price=19.99,
                 category='initial',
-                video_url="https://example.com/piano-beginners",
+                video_url="/assets/video/lessons/armando_da_silva/caterine_ringer_cest_comme_ca/teazer/test_fr.mp4",
                 star_rating=5,
-                language="en",
+                language="fr",
                 instrument_id=5,
-                concept="Reading sheet music and basic scales"
+                concept="Gammes de base (Majeur et Mineur)"
             ),
             CoverCourse(
                 id=3,
-                title="Wonderwall Cover",
-                description="Learn to play Wonderwall by Oasis",
+                title="C'est comme ça, rithmique de base",
+                description="Apprenez à jouer la partie rithmique de ce tube",
                 instructor_id=instructors[0].id,
-                duration=45,
-                price=24.99,
+                duration=20,
+                price=3.99,
                 category='cover',
-                video_url="https://example.com/wonderwall-cover",
-                star_rating=4,
-                language="en",
+                video_url="/assets/video/lessons/armando_da_silva/caterine_ringer_cest_comme_ca/teazer/test_fr.mp4",
+                star_rating=5,
+                language="fr",
                 instrument_id=1,
-                song_id=1
+                song_id=2
             ),
             CoverCourse(
                 id=4,
-                title="Bohemian Rhapsody on Piano",
-                description="Master the iconic Bohemian Rhapsody by Queen",
-                instructor_id=instructors[1].id,
-                duration=120,
-                price=49.99,
+                title="Highway Star,",
+                description="Get your amps ready friends !.",
+                instructor_id=instructors[0].id,
+                duration=45,
+                price=4.99,
                 category='cover',
-                video_url="https://example.com/bohemian-rhapsody-piano",
-                star_rating=5,
-                language="en",
-                instrument_id=5,
-                song_id=3
-            ),
-            CoverCourse(
-                id=5,
-                title="Hotel California Full Band Cover",
-                description="Learn to play all parts of Hotel California",
-                instructor_id=instructors[2].id,
-                duration=150,
-                price=54.99,
-                category='cover',
-                video_url="https://example.com/hotel-california-cover",
+                video_url="/assets/video/lessons/armando_da_silva/deep_purple_highway_star/teazer/test_en.mp4",
                 star_rating=5,
                 language="en",
                 instrument_id=2,
-                song_id=7
-            )
+                song_id=6
+            ),
         ]
 
     def get_all_courses(self, language: Optional[str] = None) -> List[CourseWithInstructor]:

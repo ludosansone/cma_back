@@ -6,31 +6,40 @@ class InstructorService:
         self.instructors: List[Instructor] = [
             Instructor(
                 id=1,
-                name="John Doe",
-                bio="Experienced guitar instructor with 10 years of teaching.",
-                specialties=["Rock", "Blues"],
+                name="Armando DA SILVA",
+                bio="Professeur de guitare avec 20 ans d'expérience",
+                specialties=["Rock", "Metal"],
                 profile_picture_url="https://example.com/john_doe.jpg",
-                rating=4.8,
-                instrument_ids=[1, 2]  # acoustic and electric guitar
+                rating=4.4,
+                instrument_ids=[2]  
             ),
             Instructor(
                 id=2,
-                name="Jane Smith",
-                bio="Professional pianist and composer.",
-                specialties=["Classical", "Jazz"],
-                profile_picture_url="https://example.com/jane_smith.jpg",
-                rating=4.9,
-                instrument_ids=[5]  # piano
+                name="Étienne Gravel",
+                bio="Professeur de guitare avec  12 ans d'expérience",
+                specialties=["Rock", "Pop", "Blues"],
+                profile_picture_url="https://example.com/john_doe.jpg",
+                rating=4.8,
+                instrument_ids=[1, 2]  
             ),
             Instructor(
                 id=3,
-                name="Bob Johnson",
-                bio="Multi-instrumentalist with a focus on rock and pop.",
-                specialties=["Rock", "Pop", "Multi-instrument"],
-                profile_picture_url="https://example.com/bob_johnson.jpg",
-                rating=4.7,
-                instrument_ids=[1, 2, 3, 4]  # guitar, bass, drums
+                name="Lee Julien",
+                bio="Professeur de batterie et guitare",
+                specialties=["Rock", "Pop", "Blues", "Country"],
+                profile_picture_url="https://example.com/john_doe.jpg",
+                rating=5,
+                instrument_ids=[1, 2, 4]
             ),
+            Instructor(
+                id=4,
+                name="Ludovic Sansone",
+                bio="Professeur de piano",
+                specialties=["Pop", "Jazz", "Classique"],
+                profile_picture_url="https://example.com/john_doe.jpg",
+                rating=4.9,
+                instrument_ids=[5]
+            )
         ]
 
     def get_all_instructors(self) -> List[Instructor]:
